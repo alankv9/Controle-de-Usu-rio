@@ -33,7 +33,7 @@ class UserController extends Controller
         User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'password' => $request->password,
         ]);
         return to_route('users.index')->with('success', 'Usuário criado com sucesso!');
     }

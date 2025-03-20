@@ -24,8 +24,8 @@ class UserRequest extends FormRequest
         $userId = $this->route('users');
         return [
             'name' => 'required | string | max:255',
-            'E-mail' => 'email | unique:user,email,' . ($userId ? $userId->id : null) . ',id',
-            'password' => $this->isMethod('post') ? 'required|min:6' : 'sometimes| confirmation |nullable|min:6'
+            'E-mail' => 'email | unique:users,email,' . ($userId ? $userId->id : null) . ',id',
+            'password' => $this->isMethod('post') ? 'required|min:6' : 'sometimes| confirmed |nullable|min:6'
         ];
     }
 
@@ -33,9 +33,10 @@ class UserRequest extends FormRequest
         return [
             'name.required' => 'O campo nome é obrigatório!',
             'E-mail.required' => 'O campo email é obrigatório!',
+            'E-mail.unique' => 'Email já está sendo utilizado.',
             'E-mail.email' => 'Necessário um email válidor!',
             'password.required' => 'O campo senha é obrigatório!',
-            'password.confirmation' => 'A confirmação de senha não corresponde!',
+            'password.confirmed' => 'A confirmação de senha não corresponde!',
             'password.min' => 'A senha tem que conter no mínimo 6 caracteres!'
         ];
     }
