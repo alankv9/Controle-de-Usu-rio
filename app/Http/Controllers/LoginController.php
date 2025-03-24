@@ -16,16 +16,7 @@ class LoginController extends Controller
 
     public function loginProcess(LoginRequest $request)
     {
-        // $validated = $request->validated();
-        // $validated['password'] = bcrypt($validated['password']);
 
-        // if (!Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-        //     return back()->withInput()->with('error', 'E-mail ou senha inválido!');
-        // }
-
-        // $user = Auth::user(); // Usuário autenticado
-
-        // return redirect()->route('user.index');
         if(!Auth::attempt($request->only(['email', 'password']))){
             return redirect()->back()->withErrors('Usuário ou senha inválidos');
         }
