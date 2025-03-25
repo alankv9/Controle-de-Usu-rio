@@ -23,18 +23,22 @@ class UserRequest extends FormRequest
     {
         $userId = $this->route('users');
         return [
-            'name' => 'required | string | max:255',
-            'E-mail' => 'email | unique:users,email,' . ($userId ? $userId->id : null) . ',id',
-            'password' => $this->isMethod('post') ? 'required|min:6' : 'sometimes| confirmed |nullable|min:6'
+            'name' => ['required',  'string', 'max:255', 'unique:users,name'],
+            'email' => 'email | unique:users,email,' . ($userId ? $userId->id : null) . ',id',
+            'password' => [$this->isMethod('post') ? 'required' : 'sometimes|',
+                            'confirmed',
+                            'nullable',
+                            'min:6']
         ];
     }
 
     public function messages(){
         return [
+            'name.unique' => 'Nome de usuário já em uso!',
             'name.required' => 'O campo nome é obrigatório!',
-            'E-mail.required' => 'O campo email é obrigatório!',
-            'E-mail.unique' => 'Email já está sendo utilizado.',
-            'E-mail.email' => 'Necessário um email válidor!',
+            'email.required' => 'O campo email é obrigatório!',
+            'email.unique' => 'Email já está sendo utilizado.',
+            'email.email' => 'Necessário um email válidor!',
             'password.required' => 'O campo senha é obrigatório!',
             'password.confirmed' => 'A confirmação de senha não corresponde!',
             'password.min' => 'A senha tem que conter no mínimo 6 caracteres!'

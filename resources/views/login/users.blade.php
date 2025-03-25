@@ -23,7 +23,7 @@
    </div>
 
     <button class="btn btn-primary w-100 py-2 mb-4" type="submit">Acessar</button>
-    <a href="" class="text-decoration-none">Cadastrar</a>
+    <a href="{{ route('cadastrar') }}" class="text-decoration-none">Cadastrar</a>
   </form>
 </main>
 
