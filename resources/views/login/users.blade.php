@@ -2,7 +2,7 @@
 
 @section('content')
 <main class="form-signin w-100 m-auto text-center bg-light rounded">
-    <img class="mb-4" src="{{ assert('images') }}" alt="" width="72" height="57">
+    <img class="mb-4" src="{{ assert('images') }}" alt="..." width="72" height="57">
     <h1 class="h3 mb-3 fw-normal">Controle de Usuário</h1>
     <x-alert/>
   <form action="{{ route('login.process') }}" method="post">
