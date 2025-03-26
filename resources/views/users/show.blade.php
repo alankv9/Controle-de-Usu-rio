@@ -26,13 +26,17 @@
         <dd class="col-sm-9">{{ $user->email }}</dd>
 
         <dt class="col-sm-3">Cadastrado</dt>
-        <dd class="col-sm-9">{{ \Carbon\Carbon::parse($user->creadet_at)->format('d/m/Y H:i;s') }}</dd>
+        <dd class="col-sm-9">{{ \Carbon\Carbon::parse($user->created_at)->format('d/m/Y H:i;s') }}</dd>
 
         <dt class="col-sm-3">Editado</dt>
         <dd class="col-sm-9">{{ \Carbon\Carbon::parse($user->updated_at)->format('d/m/Y H:i:d') }}</dd>
         </dl>
-        
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a class="btn btn-primary me-md-2" type="button" target="_blank" href="{{ route('users.pdf', $user->id) }}">PDF</a>
+        </div>
     </div>
     
+
     </div>
 @endsection
