@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CadastrarController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\ControllerPdf;
 use App\Http\Controllers\UserController;
 use Illuminate\Routing\RouteRegistrar;
 use Illuminate\Support\Facades\Route;
@@ -25,7 +26,8 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
     Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
     Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
-    Route::get('/users/{id}/pdf', [UserController::class, 'generatePDF'])->name('users.pdf');
+    Route::get('/users/{id}/pdf', [ControllerPdf::class, 'processPdf'])->name('users.pdf');
+    Route::get('/gerar-pdf/{id}', [UserController::class, 'gerarPDFUsuario']);
     Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
 
 });

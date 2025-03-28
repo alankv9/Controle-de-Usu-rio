@@ -1,7 +1,6 @@
 @if (session('success'))
     <div class="alert alert-success" role="alert">
-        <!-- {{ session('seccess') }} -->
-          Usuário cadastrado com sucesso.
+         {{ session('success') }} 
     </div>
 @endif  
 

@@ -15,9 +15,7 @@
 <div class="card-body">
 
     <x-alert/>
-
     
-
     <form action="{{ route('users.update',$user->id) }}" method="POST" class="row g-3">
         @csrf
         @method('PUT')

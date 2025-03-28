@@ -45,7 +45,7 @@ class UserController extends Controller
         return view('users.edit',['user' => $user]);
     }
 
-    public function update(UserRequest $request, User $user ){
+    public function update(User $user, UserRequest $request){
         $request->validated();
 
         $user->update([
@@ -54,12 +54,12 @@ class UserController extends Controller
         ]);
 
         if($request->filled('password')){
-            $data['password'] = Hash::make($request->password);
+            $user->update([
+                'password' => Hash::make($request->password),
+            ]);
         }
         
-        $user->update($data);
-
-        return to_route('users.show',['user' => $user->id])->with('success', 'Usuário cadastrado com sucesso!');
+        return to_route('users.show',['user' => $user->id])->with('success', 'Usuário alterado com sucesso!');
     }
 
     public function destroy(User $user){
