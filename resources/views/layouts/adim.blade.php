@@ -20,6 +20,7 @@
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="{{ route('users.index') }}" class="nav-link px-2 text-white">Início</a></li>
           <li><a href="{{ route('users.index') }}" class="nav-link px-2 text-white">Listar Usuários</a></li>
+          <li><a href="{{ route('empresa.index') }}" class=" nav-link px-2 text-white">Listar Empresas</a></li>
         </ul>
 
         <div class="text-end">
