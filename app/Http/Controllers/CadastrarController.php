@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 
 class CadastrarController extends Controller
@@ -16,7 +17,7 @@ class CadastrarController extends Controller
         $valideted = $request->validated();
         $valideted['passsword'] = bcrypt($valideted['password']);
 
-        User::create([
+       $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => $request->password,

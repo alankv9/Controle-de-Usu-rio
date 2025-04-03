@@ -36,9 +36,9 @@
             <span class="input-group-text" role="button" onclick="togglePassword('password', this)"><i class="bi bi-eye-slash-fill"></i></span>
         </div>
    </div>
-
-    <button class="btn btn-primary w-100 py-2 mb-4" type="submit">Enviar</button>
+    <button class="btn btn-primary w-100 py-2 mb-2" type="submit">Enviar</button>
   </form>
+  <a href="{{ route('verification.notice') }}" class="btn btn-primary w-100 py-2 mb-2" type="submit">Redefinir Senha</a>
 </main>
 
 

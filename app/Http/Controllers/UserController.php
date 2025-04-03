@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
+use App\Models\Empresa;
 use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
@@ -19,7 +20,9 @@ class UserController extends Controller
 
     public function show(User $user){
         
-        return view('users.show', ['user' => $user]);
+        return view('users.show', [
+            'user' => $user,
+            'empresa' => $user->empresa]);
     }
 
     public function create(Request $request){

@@ -5,7 +5,7 @@
 
 <div class="card-header hstack gap-2">
     <span>Cadastrar Usuário</span>
-
+    
     <span class="ms-auto d-sm-flex flex-row">
         <a href="{{ route('users.index') }}" class="btn btn-info btn-sm me-1">Listar Usuário</a>
     </span>

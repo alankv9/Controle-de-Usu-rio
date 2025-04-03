@@ -25,6 +25,9 @@
         <dt class="col-sm-3">Email</dt>
         <dd class="col-sm-9">{{ $user->email }}</dd>
 
+        <dt class="coll-sm-3">Empresa</dt>
+        <dd class="coll-sm-9">{{ $user->empresa }}</dd>
+
         <dt class="col-sm-3">Cadastrado</dt>
         <dd class="col-sm-9">{{ \Carbon\Carbon::parse($user->created_at)->format('d/m/Y H:i;s') }}</dd>
 

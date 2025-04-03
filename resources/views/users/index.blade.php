@@ -8,6 +8,7 @@
 
         <span class="ms-auto">
             <a href="{{ route('users.create') }} " class="btn btn-success btn-sm">Cadastrar Novo Usuário</a>
+            <a href="" class="btn btn-success btn-sm">Cadastrar Empresa ao Usuario</a>
         </span>
     </div>
 
