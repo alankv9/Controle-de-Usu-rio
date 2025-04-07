@@ -8,7 +8,7 @@
 
         <span class="ms-auto">
             <a href="{{ route('users.create') }} " class="btn btn-success btn-sm">Cadastrar Novo Usuário</a>
-            <a href="" class="btn btn-success btn-sm">Cadastrar Empresa ao Usuario</a>
+            <a href="{{ route('empresa.usuario') }}" class="btn btn-success btn-sm">Cadastrar Empresa ao Usuario</a>
         </span>
     </div>
 
@@ -34,7 +34,7 @@
         <th>{{ $user->id }}</th>
         <td>{{ $user->name }}</td>
         <td>{{ $user->email }}</td>
-        <td>{{ $user->empresa }}</td>
+        <td>{{ $user->empresa?->name ?? 'Nenhuma empresa vinculada' }}</td>
         <td class="text-center">
         <a href="{{ route('users.show', $user->id) }}" class="btn btn-primary btn-sm" >Visualizar</a> 
           <a href="{{ route('users.edit', $user->id)  }}" class="btn btn-warning btn-sm">Editar Usuário</a>

@@ -26,6 +26,9 @@ Route::middleware('auth')->group(function () {
         'empresa' => EmpresaController::class
     ]);
 
+    Route::get('/empresa/cadastra/usuario', [EmpresaController::class, 'prossEmpre'])->name('empresa.usuario');
+    Route::post('/cadastra/usuario/empresa',[EmpresaController::class, 'cadastraUsuarioEmpresa'])->name('cd');
+
     // Geração de PDFs
     Route::get('/users/{id}/pdf', [ControllerPdf::class, 'processPdf'])->name('users.pdf');
     Route::get('/empresa/{id}/pdf', [ControllerPdfEmpres::class, 'processPdfE'])->name('empresas.pdf');

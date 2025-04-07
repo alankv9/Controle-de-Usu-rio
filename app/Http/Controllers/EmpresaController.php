@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\EmpresaRequest;
 use App\Models\Empresa;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class EmpresaController extends Controller
 {
@@ -49,6 +50,32 @@ class EmpresaController extends Controller
 
         return to_route('empresa.show', ['empresa' => $empresa->id])->with('success', 'Empresa alterada com sucesso.');
     }
+
+    public function prossEmpre(){
+        
+        return view('empresas.empres-usuario');
+    }
+
+    public function cadastraUsuarioEmpresa(Request $request){
+
+
+        $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'empresa_id' => 'required|exists:empresas,id',
+        ]);
+    
+        $user = User::find($request->user_id);
+
+        if($user->empresa){
+            return back()->with('error', 'Este usuário já está vinculado a uma empresa.');
+        }
+
+        $user->empresa_id = $request->empresa_id;
+        $user->save();
+    
+        return redirect()->back()->with('success', 'Usuário vinculado à empresa com sucesso!');
+    }
+    
 
     public function destroy(Empresa $empresa){
         $empresa->delete();

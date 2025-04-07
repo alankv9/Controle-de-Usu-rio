@@ -16,9 +16,6 @@
 
     <x-alert/>
 
-    <h2>
-        
-    </h2>
     <form action="{{ route('empresa.store') }}" method="POST" class="row g-3">
         @csrf
         @method('POST')
