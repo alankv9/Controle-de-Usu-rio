@@ -16,22 +16,22 @@
 
         <x-alert/>
         <dl class="row">
-        <dt class="col-sm-3">ID</dt>
+        <dt class="col-sm-3">ID:</dt>
         <dd class="col-sm-9">{{ $user->id }}</dd>
 
-        <dt class="col-sm-3">Nome</dt>
+        <dt class="col-sm-3">Nome:</dt>
         <dd class="col-sm-9">{{ $user->name }}</dd>
 
-        <dt class="col-sm-3">Email</dt>
+        <dt class="col-sm-3">Email:</dt>
         <dd class="col-sm-9">{{ $user->email }}</dd>
 
-        <dt class="coll-sm-3">Empresa</dt>
-        <dd class="coll-sm-9">{{ $user->empresa }}</dd>
+        <dt class="col-sm-3">Empresa:</dt>
+        <dd class="col-sm-9">{{ $user->empresa?->name ?? 'Nenhuma empresa vinculada' }}</dd>
 
-        <dt class="col-sm-3">Cadastrado</dt>
-        <dd class="col-sm-9">{{ \Carbon\Carbon::parse($user->created_at)->format('d/m/Y H:i;s') }}</dd>
+        <dt class="col-sm-3">Cadastrado:</dt>
+        <dd class="col-sm-9">{{ \Carbon\Carbon::parse($user->created_at)->format('d/m/Y H:i:s') }}</dd>
 
-        <dt class="col-sm-3">Editado</dt>
+        <dt class="col-sm-3">Editado:</dt>
         <dd class="col-sm-9">{{ \Carbon\Carbon::parse($user->updated_at)->format('d/m/Y H:i:d') }}</dd>
         </dl>
 

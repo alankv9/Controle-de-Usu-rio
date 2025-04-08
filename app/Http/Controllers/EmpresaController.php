@@ -15,6 +15,7 @@ class EmpresaController extends Controller
     }
 
     public function show(Empresa $empresa){
+        $empresa->loadCount('usuarios');
         return view('empresas.show',['empresa' => $empresa]);
     }
 

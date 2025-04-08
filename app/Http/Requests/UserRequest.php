@@ -31,7 +31,7 @@ class UserRequest extends FormRequest
                 'nullable',
                 'min:6'
             ],
-            'empresa_id' => 'required|exists:empresas,id'
+            'empresa_id' => 'nullable|exists:empresas,id'
         ];
     }
 

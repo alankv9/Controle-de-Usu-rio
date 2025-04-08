@@ -49,7 +49,7 @@ class Empresa extends Authenticatable
         ];
     }
 
-    public function usuario(){
-        return $this->belongsTo(User::class, 'usuario_id');
+    public function usuarios(){
+        return $this->hasMany(User::class, 'empresa_id');
     }
 }

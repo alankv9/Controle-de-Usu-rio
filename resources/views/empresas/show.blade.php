@@ -9,7 +9,7 @@
 
     <span class="ms-auto d-sm-flex flex-row">
         <a href="{{ route('empresa.index') }}" class="btn btn-info btn-sm me-1">Listar Empresas</a>
-         <a href="{{ route('empresa.edit',$empresa->id) }}" class="btn btn-warning btn-sm me-1">Editar Empresas</a>
+         <a href="{{ route('empresa.edit',$empresa->id) }}" class="btn btn-warning btn-sm me-1">Editar Empresa</a>
     </span>
 </div>
 
@@ -19,6 +19,9 @@
     <dl class="row">
     <dt class="col-sm-3">ID</dt>
     <dd class="col-sm-9">{{ $empresa->id }}</dd>
+
+    <dt class="col-sm-3">Qtd Empregados</dt>
+    <dd class="col-sm-9">{{ $empresa->usuarios_count }}</dd>
 
     <dt class="col-sm-3">Cnpj</dt>
     <dd class="col-sm-9">{{ $empresa->cnpj }}</dd>
@@ -30,7 +33,7 @@
     <dd class="col-sm-9">{{ $empresa->email }}</dd>
 
     <dt class="col-sm-3">Cadastrado</dt>
-    <dd class="col-sm-9">{{ \Carbon\Carbon::parse($empresa->created_at)->format('d/m/Y H:i;s') }}</dd>
+    <dd class="col-sm-9">{{ \Carbon\Carbon::parse($empresa->created_at)->format('d/m/Y H:i:s') }}</dd>
 
     <dt class="col-sm-3">Editado</dt>
     <dd class="col-sm-9">{{ \Carbon\Carbon::parse($empresa->updated_at)->format('d/m/Y H:i:d') }}</dd>
