@@ -38,7 +38,7 @@
    </div>
     <button class="btn btn-primary w-100 py-2 mb-2" type="submit">Enviar</button>
   </form>
-  <a href="{{ route('verification.notice') }}" class="btn btn-primary w-100 py-2 mb-2" type="submit">Redefinir Senha</a>
+  <a href="" class="btn btn-primary w-100 py-2 mb-2" type="submit">Redefinir Senha</a>
 </main>
 
 
