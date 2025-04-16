@@ -40,6 +40,7 @@ class UserRequest extends FormRequest
         return [
             'name.unique' => 'Nome de usuário já em uso!',
             'name.required' => 'O campo nome é obrigatório!',
+            'name.string' => 'Formato invalido!',
             'email.required' => 'O campo email é obrigatório!',
             'email.unique' => 'Email já está sendo utilizado.',
             'email.email' => 'Necessário um email válidor!',

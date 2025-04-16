@@ -33,13 +33,13 @@
         <div class="col-md-6">
         <label for="name" class="form-label">Senha: </label>
         <div class="input-group">
-        <input type="password" name="password" class="form-control" id="password" placeholder="password" value="{{ old('password') }}">
+        <input type="password" name="password" class="form-control" id="password" placeholder="Senha" value="{{ old('password') }}">
         <span class="input-group-text" role="button" onclick="togglePassword('password', this)"><i class="bi bi-eye-slash-fill"></i></span>
         </div>
         </div>
 
         <div class="col-md-6">
-        <label for="name" class="form-label">Confima Senha: </label>
+        <label for="name" class="form-label">Confirma Senha: </label>
         <div class="input-group">
         <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Comfirma senha" value="{{ old('password_confirmation') }}">
         <span class="input-group-text" role="button" onclick="togglePassword('password_confirmation', this)"><i class="bi bi-eye-slash-fill"></i></span>
