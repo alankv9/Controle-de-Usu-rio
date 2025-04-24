@@ -1,17 +1,18 @@
 <?php
-
-namespace Tests\Unit;
-
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 use App\Models\User;
 
 class ExampleTest extends TestCase
 {
-    /**
-     * A basic test example.
-     */
-    public function test_that_true_is_true(): void
+    public function test_with_session_data()
     {
-        $this->assertTrue(true);
+        $user = User::factory()->create();
+
+        $response = $this
+            ->actingAs($user)
+            ->withSession(['banned' => false])
+            ->get('/');
+
+        $response->assertStatus(200);
     }
 }

@@ -23,7 +23,12 @@
    </div>
 
     <button class="btn btn-primary w-100 py-2 mb-4" type="submit">Acessar</button>
+    <div>
     <a href="{{ route('cadastrar') }}" class="text-decoration-none">Cadastrar</a>
+    </div>
+    <div>
+    <a href="{{ route('password.request') }}"class="text-decoration-none">Redefinição de senha</a>
+    </div>
   </form>
 </main>
 

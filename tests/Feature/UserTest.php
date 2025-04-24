@@ -31,7 +31,7 @@ class UserTest extends TestCase
         ]);
 
         $response = $this->withSession(['banned' => false])->get('/');
-        $response->assertStatus(200 || 302);
+        $response->assertStatus(200,302);
 
     }
     
