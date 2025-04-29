@@ -1,4 +1,5 @@
 import './bootstrap';
+import { Dropdown } from 'bootstrap';
 
 // Visualização da senha
 window.togglePassword = function(fieldId, toggleIcon){
@@ -16,3 +17,16 @@ window.togglePassword = function(fieldId, toggleIcon){
         icon.classList.add('bi', 'bi-eye-slash-fill');
     }
 }
+
+const dropdownToggle = document.getElementById('dropdownToggle');
+// Seleciona o menu dropdown
+const dropdownMenu = document.getElementById('dropdownToggle').nextElementSibling; // o próximo elemento que é o <ul>
+
+// Cria a instância do dropdown do Bootstrap
+const dropdown = new Dropdown(dropdownToggle);
+
+// Caso queira ativar o dropdown programaticamente:
+dropdownToggle.addEventListener('click', (event) => {
+    dropdown.toggle(); // Alterna entre mostrar e esconder o menu
+});
+
