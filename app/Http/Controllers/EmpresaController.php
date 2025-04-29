@@ -57,12 +57,19 @@ class EmpresaController extends Controller
         return view('empresas.empres-usuario');
     }
 
-    public function cadastraUsuarioEmpresa(Request $request){
-
+    public function cadastraUsuarioEmpresa(Request $request, Empresa $empresa){
+        
+        if(!isset($empresa)){
+            return back()->with('error', 'Não há empresa disponivel no momento');
+        }
 
         $request->validate([
             'user_id' => 'required|exists:users,id',
             'empresa_id' => 'required|exists:empresas,id',
+        ],[
+            'user_id.required' => 'Não há usuário selecionado',
+            'empresa_id.exists' => 'A empresa selecionada é inválida ou não está cadastrada.',
+            'empresa_id.required' => 'A seleção de uma empressa é obrigatório'
         ]);
     
         $user = User::find($request->user_id);
