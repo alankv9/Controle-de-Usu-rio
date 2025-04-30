@@ -18,15 +18,16 @@ window.togglePassword = function(fieldId, toggleIcon){
     }
 }
 
+// Seleciona o botão que ativa o dropdown
 const dropdownToggle = document.getElementById('dropdownToggle');
-// Seleciona o menu dropdown
-const dropdownMenu = document.getElementById('dropdownToggle').nextElementSibling; // o próximo elemento que é o <ul>
-
-// Cria a instância do dropdown do Bootstrap
-const dropdown = new Dropdown(dropdownToggle);
-
-// Caso queira ativar o dropdown programaticamente:
+// Seleciona o menu dropdown (o próximo elemento irmão <ul>)
+const dropdownMenu = dropdownToggle.nextElementSibling;
+// Cria a instância do dropdown do Bootstrap (importante: usa 'bootstrap.Dropdown')
+const dropdown = new bootstrap.Dropdown(dropdownToggle);
+// Alternar o dropdown ao clicar
 dropdownToggle.addEventListener('click', (event) => {
-    dropdown.toggle(); // Alterna entre mostrar e esconder o menu
+    event.preventDefault(); // Evita o comportamento padrão do link
+    dropdown.toggle();
 });
+
 
