@@ -30,8 +30,7 @@ Route::middleware('guest')->group(function () {
     
 });
 
-// Logout
-Route::get('/logout', [LoginController::class, 'destroy'])->name('logout');
+
 
 // Rotas protegidas
 Route::middleware('auth')->group(function () {
@@ -50,4 +49,7 @@ Route::middleware('auth')->group(function () {
     // Geração de PDFs
     Route::get('/users/{id}/pdf', [ControllerPdf::class, 'processPdf'])->name('users.pdf');
     Route::get('/empresa/{id}/pdf', [ControllerPdfEmpres::class, 'processPdfE'])->name('empresas.pdf');
+
+    // Logout
+    Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
 });

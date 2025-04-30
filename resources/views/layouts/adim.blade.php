@@ -29,7 +29,9 @@
           <ul class="dropdown-menu text-small" id="userDropdown">
             <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#userDataModal">Meus dados</a>
             <li>
-                <form method="post" action="{{ route('logout') }}">
+                <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                @method('POST')
                     <button type="submit" class="dropdown-item text-danger">Sair</button>
                 </form>
                 </a>
