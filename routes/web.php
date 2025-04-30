@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     LoginController, CadastrarController, UserController,
     EmpresaController, ControllerPdf, ControllerPdfEmpres,
+    ProfileController,
 };
 use App\Http\Controllers\{
     PasswordResetController, PasswordResetLinkController,
