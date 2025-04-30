@@ -49,6 +49,7 @@
 
         <div class="col-12">
         <button type="submit" class="btn btn-success btn-sm">Cadastrar</button>
+        <a href="{{ route('users.index') }}" type="submit" class="btn btn-warning btn-sm" >Cancelar</a>
         </div>
     </form>
     </div>
