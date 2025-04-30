@@ -42,12 +42,24 @@ class EmpresaController extends Controller
 
     public function update(Empresa $empresa, EmpresaRequest $request){
         $request->validated();
-
-        $empresa->update([
+        
+        $dadosAtualizados=([
             'name' => $request->name,
             'email' => $request->email,
             'cnpj' => $request->cnpj,
         ]);
+
+        if (
+            $empresa->name === $dadosAtualizados['name'] &&
+            $empresa->email === $dadosAtualizados['email'] &&
+            $empresa->cnpj === $dadosAtualizados['cnpj']
+        ) {
+            return redirect()
+                ->route('empresa.show', $empresa->id)
+                ->with('info', 'Nenhuma alteração foi feita nos dados da empresa.');
+        }
+        
+        $empresa->update($dadosAtualizados);
 
         return to_route('empresa.show', ['empresa' => $empresa->id])->with('success', 'Empresa alterada com sucesso.');
     }

@@ -47,7 +47,8 @@
         </div>
 
         <div class="col-12">
-        <button type="submit" class="btn btn-warning btn-sm">Salvar</button>
+        <button type="submit" class="btn btn-success btn-sm">Salvar</button>
+        <a type="submit" class="btn btn-warning btn-sm" href="{{ route('users.index') }}">Cancelar</a>
         </div>
 
     </form>
