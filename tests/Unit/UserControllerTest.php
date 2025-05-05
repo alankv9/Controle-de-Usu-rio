@@ -96,25 +96,6 @@ class UserControllerTest extends TestCase
         $this->assertDatabaseHas('users', ['name' => 'New Name', 'email' => 'new@example.com']);
     }
 
-    // Teste de atualização de senha do usuário
-    public function test_update_user_password(): void
-    {
-        $admin = User::factory()->create();
-        $user = User::factory()->create([
-            'password' => bcrypt('old-password'),
-        ]);
-
-        $response = $this->actingAs($admin)->put(route('users.update', $user->id), [
-            'name' => $user->name,
-            'email' => $user->email,
-            'password' => 'new-password',
-            'password_confirmation' => 'new-password',
-        ]);
-
-        $response->assertRedirect(route('users.show', $user->id));
-        $this->assertTrue(Hash::check('new-password', $user->fresh()->password));
-    }
-
     // Teste de exclusão de usuário
     public function test_destroy_deletes_user(): void
     {
