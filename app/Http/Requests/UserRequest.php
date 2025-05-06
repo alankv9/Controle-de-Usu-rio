@@ -31,7 +31,8 @@ class UserRequest extends FormRequest
                 'nullable',
                 'min:6'
             ],
-            'empresa_id' => 'nullable|exists:empresas,id'
+            'empresa_id' => 'nullable|exists:empresas,id',
+            'photo' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ];
     }
 

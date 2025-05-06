@@ -48,7 +48,7 @@
 
 <div class="modal fade" id="userDataModal" tabindex="-1" aria-labelledby="userDataModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <d class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="userDataModalLabel">Meus Dados</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
@@ -56,10 +56,12 @@
       <div class="modal-body">
         <p><strong>Nome:</strong> {{ Auth::user()->name }}</p>
         <p><strong>Email:</strong> {{ Auth::user()->email }}</p>
+        <p><strong>Empresa: </strong>{{ Auth::user()->empresa?->name ?? 'Nenhuma empresa vinculada' }}</p>
         <!-- Adicione mais campos se quiser -->
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+      <input class="form-control" type="file" name="logo" accept="image/*">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
       </div>
     </div>
   </div>
