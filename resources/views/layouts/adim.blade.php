@@ -59,10 +59,19 @@
         <p><strong>Empresa: </strong>{{ Auth::user()->empresa?->name ?? 'Nenhuma empresa vinculada' }}</p>
         <!-- Adicione mais campos se quiser -->
       </div>
-      <div class="modal-footer">
-      <input class="form-control" type="file" name="logo" accept="image/*">
-      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-      </div>
+<!-- Bootstrap Icons (coloque no <head> do seu layout se ainda não tiver) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+<div class="modal-footer d-flex justify-content-between w-100">
+    <!-- Preciso modificar -->
+    <img id="preview-image" src="{{ asset('') }}" class="rounded-circle" width="50" height="50">
+    <label class="btn btn-primary mb-0">
+        <i class="bi bi-upload"></i> Escolher Foto
+        <input type="file" name="logo" accept="image/*" hidden onchange="previewPhoto(event)">
+    </label>
+    <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">Fechar</button>
+</div>
+
     </div>
   </div>
 </div>

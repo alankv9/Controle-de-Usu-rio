@@ -31,3 +31,34 @@ dropdownToggle.addEventListener('click', (event) => {
 });
 
 
+function previewPhoto(event) {
+    const input = event.target;
+    const preview = document.getElementById('preview-image');
+
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            preview.src = e.target.result;
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+
+// Função para mostrar o preview da imagem escolhida
+function previewPhoto(event) {
+    const input = event.target;
+    const preview = document.getElementById('photo-preview');
+
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            preview.src = e.target.result;
+            preview.style.display = 'block'; // Exibe o preview
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+

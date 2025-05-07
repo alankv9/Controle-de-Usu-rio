@@ -28,18 +28,23 @@ class UserController extends Controller
         return view('users.create');
     }
 
-    public function store(UserRequest $request){
+    public function store(UserRequest $request)
+    {
         $validated = $request->validated();
-        $validated['password'] = bcrypt($validated['password']);
-        
-
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => $request->password,
-        ]);
+    
+        $photoPath = null;
+        if ($request->hasFile('photo')) {
+            $photoPath = $request->file('photo')->store('users/photos', 'public');
+        }
+    
+        $validated['password'] = Hash::make($validated['password']);
+        $validated['photo'] = $photoPath;
+    
+        User::create($validated);
+    
         return to_route('users.index')->with('success', 'Usuário criado com sucesso!');
     }
+    
 
     public function edit(User $user){
 
