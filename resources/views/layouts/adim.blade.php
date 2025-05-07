@@ -24,7 +24,7 @@
 
         <div class="dropdown text-end">
           <a href="#" id="dropdownToggle" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+          <img src="{{ asset('storage/' . Auth::user()->photo) }}" alt="Foto de Perfil" width="40" height="40" class="rounded-circle">
           </a>
           <ul class="dropdown-menu text-small" id="userDropdown">
             <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#userDataModal">Meus dados</a>
@@ -64,7 +64,7 @@
 
 <div class="modal-footer d-flex justify-content-between w-100">
     <!-- Preciso modificar -->
-    <img id="preview-image" src="{{ asset('') }}" class="rounded-circle" width="50" height="50">
+    <img id="preview-image" src="{{ asset('image/') }}" class="rounded-circle" width="50" height="50">
     <label class="btn btn-primary mb-0">
         <i class="bi bi-upload"></i> Escolher Foto
         <input type="file" name="logo" accept="image/*" hidden onchange="previewPhoto(event)">

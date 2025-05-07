@@ -54,18 +54,16 @@
 
             <div class="modal-footer d-flex justify-content-between w-100">
                 <!-- Preciso modificar -->
-                <img id="preview-image" src="{{ asset('') }}" class="rounded-circle" width="50" height="50">
+            <img id="preview-image" src="{{ asset('public/images') }}" class="rounded-circle" width="50" height="50">
                 <label class="btn btn-primary mb-0">
                 <i class="bi bi-upload"></i> Escolher Foto
-                <input type="file" name="logo" accept="image/*" hidden onchange="previewPhoto(event)">
+                <input type="file" name="logo" accept="images/*" hidden onchange="previewPhoto(event)">
                 </label>
             </div>
             <!-- Preview da Imagem -->
             <div class="col-md-12">
                 <img id="photo-preview" src="#" alt="Prévia da Imagem" class="img-thumbnail" style="display:none; max-height: 200px;">
             </div>
-
-            <!-- Botões -->
             <div class="col-12">
                 <button type="submit" class="btn btn-success btn-sm">Cadastrar</button>
                 <a href="{{ route('users.index') }}" class="btn btn-warning btn-sm">Cancelar</a>

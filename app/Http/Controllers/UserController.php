@@ -34,7 +34,7 @@ class UserController extends Controller
     
         $photoPath = null;
         if ($request->hasFile('photo')) {
-            $photoPath = $request->file('photo')->store('users/photos', 'public');
+            $photoPath = $request->file('photo')->store('public/images', 'public');
         }
     
         $validated['password'] = Hash::make($validated['password']);
