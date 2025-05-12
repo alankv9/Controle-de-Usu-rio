@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -34,7 +33,7 @@ class UserController extends Controller
     
         $photoPath = null;
         if ($request->hasFile('photo')) {
-            $photoPath = $request->file('photo')->store('public/images', 'public');
+            $photoPath = $request->file('photo')->store('images', 'public');
         }
     
         $validated['password'] = Hash::make($validated['password']);

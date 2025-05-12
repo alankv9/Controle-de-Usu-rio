@@ -54,7 +54,9 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
       </div>
       <div class="modal-body">
+        <div>
         <p><strong>Nome:</strong> {{ Auth::user()->name }}</p>
+        </div>
         <p><strong>Email:</strong> {{ Auth::user()->email }}</p>
         <p><strong>Empresa: </strong>{{ Auth::user()->empresa?->name ?? 'Nenhuma empresa vinculada' }}</p>
         <!-- Adicione mais campos se quiser -->
@@ -63,8 +65,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
 <div class="modal-footer d-flex justify-content-between w-100">
-    <!-- Preciso modificar -->
-    <img id="preview-image" src="{{ asset('image/') }}" class="rounded-circle" width="50" height="50">
+    <img id="preview-image" src="{{ asset('storage/' . Auth::user()->photo) }}" class="rounded-circle" width="50" height="50">
     <label class="btn btn-primary mb-0">
         <i class="bi bi-upload"></i> Escolher Foto
         <input type="file" name="logo" accept="image/*" hidden onchange="previewPhoto(event)">
