@@ -61,7 +61,6 @@
         <p><strong>Empresa: </strong>{{ Auth::user()->empresa?->name ?? 'Nenhuma empresa vinculada' }}</p>
         <!-- Adicione mais campos se quiser -->
       </div>
-<!-- Bootstrap Icons (coloque no <head> do seu layout se ainda não tiver) -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
 <div class="modal-footer d-flex justify-content-between w-100">
