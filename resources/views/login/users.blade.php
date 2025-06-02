@@ -8,8 +8,8 @@
   <form action="{{ route('login.process') }}" method="post">
     @csrf
     <div class="form-floating mb-4">
-      <input type="email" name="email" class="form-control" id="email" placeholder="Digite o e-mail de Usuário" value="{{ old('email') }}">
-      <label for="email">Usuário</label>
+      <input type="text" name="name" class="form-control" id="name" placeholder="Digite o nome de Usuário" value="{{ old('name') }}">
+      <label for="name">Usuário</label>
     </div>
 
     <div class="mb-4">
